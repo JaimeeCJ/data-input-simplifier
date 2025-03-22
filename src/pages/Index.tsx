@@ -1,15 +1,14 @@
 
 import React from 'react';
 import AnimatedTransition from '@/components/AnimatedTransition';
-import Layout from '@/components/Layout';
 import LoginForm from '@/components/LoginForm';
 import { motion } from 'framer-motion';
 
 const Index: React.FC = () => {
   return (
-    <Layout>
+    <div className="min-h-screen bg-gradient-to-br from-blue to-primary/90 flex items-center justify-center p-4">
       <AnimatedTransition>
-        <div className="flex flex-col items-center justify-center min-h-[80vh]">
+        <div className="w-full max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -27,7 +26,7 @@ const Index: React.FC = () => {
           <LoginForm />
         </div>
       </AnimatedTransition>
-    </Layout>
+    </div>
   );
 };
 

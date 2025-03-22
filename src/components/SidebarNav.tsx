@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { User, CheckSquare } from 'lucide-react';
+import { User, CheckSquare, Home } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -25,6 +25,11 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ children }) => {
   const location = useLocation();
   
   const menuItems = [
+    {
+      title: 'Dashboard',
+      path: '/dashboard',
+      icon: Home,
+    },
     {
       title: 'Cadastro',
       path: '/profile',
@@ -55,7 +60,7 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ children }) => {
                   {menuItems.map((item) => (
                     <SidebarMenuItem key={item.title}>
                       <SidebarMenuButton 
-                        isActive={location.pathname.includes(item.path)}
+                        isActive={location.pathname === item.path}
                         onClick={() => navigate(item.path)}
                         tooltip={item.title}
                       >

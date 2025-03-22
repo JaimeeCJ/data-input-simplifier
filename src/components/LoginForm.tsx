@@ -28,7 +28,7 @@ const LoginForm: React.FC = () => {
           title: "Login bem-sucedido",
           description: "Bem-vindo ao sistema.",
         });
-        navigate('/profile');
+        navigate('/dashboard');
       } else {
         toast({
           title: "Erro de login",
