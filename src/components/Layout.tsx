@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { AnimatePresence } from 'framer-motion';
-import NavigationMenu from './NavigationMenu';
+import SidebarNav from './SidebarNav';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -22,7 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <p className="text-white/70 mt-2">Gerencie seus dados e escolha suas opções</p>
           </div>
           
-          <NavigationMenu />
+          <SidebarNav />
         </div>
         
         <AnimatePresence mode="wait">
