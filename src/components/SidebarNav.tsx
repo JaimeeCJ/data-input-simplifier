@@ -1,8 +1,7 @@
 
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { User, CheckSquare, Menu } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { User, CheckSquare } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -17,7 +16,11 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 
-const SidebarNav: React.FC = () => {
+interface SidebarNavProps {
+  children: React.ReactNode;
+}
+
+const SidebarNav: React.FC<SidebarNavProps> = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -36,7 +39,7 @@ const SidebarNav: React.FC = () => {
 
   return (
     <SidebarProvider defaultOpen={true}>
-      <div className="flex w-full">
+      <div className="flex w-full rounded-xl overflow-hidden bg-white/5 backdrop-blur-sm">
         <Sidebar variant="floating" className="border-r border-white/10">
           <SidebarHeader className="pb-4">
             <div className="flex items-center gap-2 px-2">
@@ -67,14 +70,12 @@ const SidebarNav: React.FC = () => {
           </SidebarContent>
         </Sidebar>
         
-        <div className="flex-1 p-0">
-          <div className="p-4 flex justify-between items-center bg-white/5 backdrop-blur-sm rounded-lg mb-4">
-            <h2 className="text-white font-medium">
-              {location.pathname.includes('profile') 
-                ? 'Perfil de Usuário' 
-                : 'Escolha de Opções'}
-            </h2>
+        <div className="flex-1 p-4">
+          <div className="flex justify-end mb-4">
             <SidebarTrigger />
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+            {children}
           </div>
         </div>
       </div>
